@@ -16,6 +16,7 @@ body{
 }
 img{
     max-width: 100%;
+    object-fit: contain;
 }
 .thumbs{
     border-left: 1px solid black;
