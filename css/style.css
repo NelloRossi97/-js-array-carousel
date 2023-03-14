@@ -1,0 +1,22 @@
+:root{
+    --nr-dark: #262626;
+}
+
+body{
+    background-color: var(--nr-dark);
+}
+
+.carousel-container{
+    background-color: grey;
+    width: 1200px;
+    height: 600px;
+}
+.thumb{
+    height: 20%;
+}
+img{
+    max-width: 100%;
+}
+.thumbs{
+    border-left: 1px solid black;
+}
