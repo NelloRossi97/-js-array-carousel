@@ -56,6 +56,7 @@ const imgThumb = document.getElementById('thumbs');
 let image = "";
 let thumb = "";
 let currentIndex = 0;
+
 for (i = 0; i < imagesArray.length ; i++){
     image +=   `<div class="image d-none">
                         <img src="${imagesArray[i]}" class="img-fluid h-100" alt="">
@@ -66,6 +67,19 @@ for (i = 0; i < imagesArray.length ; i++){
                 </div>`;
 }
 
-imgBig.innerHTML += image;
-document.querySelectorAll('.image')[currentIndex].classList.toggle('d-none');
+imgBig.innerHTML = image;
+document.querySelectorAll('.image')[currentIndex].classList.remove('d-none');
 imgThumb.innerHTML += thumb;
+
+const next = document.getElementById('next');
+next.addEventListener('click', nextImage);
+
+function nextImage (){
+    document.querySelectorAll('.image')[currentIndex].classList.add('d-none');
+    if (currentIndex === imagesArray.length -1){
+        currentIndex = 0;
+    }else{
+        currentIndex++;
+    }
+    document.querySelectorAll('.image')[currentIndex].classList.remove('d-none');
+}
