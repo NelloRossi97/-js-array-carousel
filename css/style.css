@@ -33,4 +33,12 @@ img{
 
 .active{
     border: 5px solid white;
+    opacity: 1!important;
+}
+
+.opacity{
+    opacity: 0.5;
+}
+button{
+    z-index: 1000;
 }

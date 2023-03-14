@@ -51,6 +51,7 @@ const imagesArray = [
     "./img/04.webp",
     "./img/05.webp"
 ];
+
 const imgBig = document.getElementById('images');
 const imgThumb = document.getElementById('thumbs');
 let image = "";
@@ -62,7 +63,7 @@ for (i = 0; i < imagesArray.length ; i++){
                         <img src="${imagesArray[i]}" class="img-fluid h-100" alt="">
                 </div>`;
 
-    thumb +=   `<div class="thumb w-100 d-flex justify-content-center">
+    thumb +=   `<div class="thumb w-100 d-flex justify-content-center opacity">
                     <img src="${imagesArray[i]}" class="h-100" alt="">
                 </div>`;
 }
@@ -74,12 +75,9 @@ imgThumb.innerHTML += thumb;
 const next = document.getElementById('next');
 next.addEventListener('click', nextImage);
 
-function nextImage (){
-    document.querySelectorAll('.image')[currentIndex].classList.add('d-none');
-    if (currentIndex === imagesArray.length -1){
-        currentIndex = 0;
-    }else{
-        currentIndex++;
-    }
-    document.querySelectorAll('.image')[currentIndex].classList.remove('d-none');
-}
+
+const prev = document.getElementById('prev');
+prev.addEventListener('click', prevImage);
+
+
+
