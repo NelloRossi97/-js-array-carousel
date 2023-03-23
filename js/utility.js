@@ -21,3 +21,11 @@ function nextImage (){
     document.querySelectorAll('.image')[currentIndex].classList.remove('d-none');
     document.querySelectorAll('.thumb')[currentIndex].classList.add('active');
 }
+
+function stopInterval(){
+    clearInterval(nextTimer);
+}
+
+function startInterval(){
+    nextTimer = setInterval(nextImage, 2000);
+}

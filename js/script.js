@@ -32,18 +32,7 @@ Al click delle frecce, oltre al cambio di immagine attiva, gestire il cambio di 
 attiva. 
 */
 
-/*
-IMAGE
-<div class="image">
-    <img src="./img/01.webp" class="img-fluid h-100" alt="">
-</div>
-
-THUMB
-<div class="thumb w-100 d-flex justify-content-center active">
-    <img src="./img/01.webp" class="h-100" alt="">
-</div>
-*/
-
+//array of images
 const imagesArray = [
     "./img/01.webp",
     "./img/02.webp",
@@ -52,12 +41,17 @@ const imagesArray = [
     "./img/05.webp"
 ];
 
+//big image box
 const imgBig = document.getElementById('images');
+//thumbs box
 const imgThumb = document.getElementById('thumbs');
+
 let image = "";
 let thumb = "";
+//index to increment at every image
 let currentIndex = 0;
 
+//generating images
 for (i = 0; i < imagesArray.length ; i++){
     image +=   `<div class="image d-none">
                         <img src="${imagesArray[i]}" class="img-fluid h-100" alt="">
@@ -68,14 +62,26 @@ for (i = 0; i < imagesArray.length ; i++){
                 </div>`;
 }
 
+//printing images
 imgBig.innerHTML = image;
 document.querySelectorAll('.image')[currentIndex].classList.remove('d-none');
 imgThumb.innerHTML += thumb;
 
+//calling next image on click on next button
 const next = document.getElementById('next');
 next.addEventListener('click', nextImage);
 
+//setting a timer to keep images scrolling
+let nextTimer = setInterval(nextImage, 2000);
+const carousel = document.querySelector('.carousel-container');
 
+//hover on the carousel stop the auto scrolling
+carousel.addEventListener('mouseover', stopInterval);
+
+//hover out of the carousel start the auto scrolling
+carousel.addEventListener('mouseout', startInterval);
+
+//calling previousimage on click on previous button
 const prev = document.getElementById('prev');
 prev.addEventListener('click', prevImage);
 
